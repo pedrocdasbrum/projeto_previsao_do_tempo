@@ -72,13 +72,13 @@ class MainScreen extends StatelessWidget {
     );
   }
 
-  List<Forecast> buildWeek(dynamic data) {
+  List<Forecast> buildWeek(List<dynamic> data) {
     List<Forecast> listWeek = [];
-    for (int index = 0; index < 7; index++) {
+    for (var i = 0; i < data.length; i++) {
       listWeek.add(Forecast(
-        dayOfWeek: data[index]["weekday"],
-        icon: findIcon(data[index]["condition"]),
-        temperature: data[index]["max"],
+        dayOfWeek: data[i]["weekday"],
+        icon: findIcon(data[i]["condition"]),
+        temperature: data[i]["max"],
       ));
     }
     return listWeek;
